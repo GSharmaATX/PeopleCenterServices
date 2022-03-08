@@ -1,0 +1,6 @@
+com.gyanesh.hc.api
+com.gyanesh.hc.common
+com.gyanesh.hc.dto
+com.gyanesh.hc.repository
+com.gyanesh.hc.service
+com.gyanesh.hc.utils
