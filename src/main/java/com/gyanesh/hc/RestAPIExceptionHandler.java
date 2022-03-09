@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Application specific exceptions must be handled here. 
+ * @author gyanesh.sharma
+ *
+ */
 @ControllerAdvice
 public class RestAPIExceptionHandler {
 

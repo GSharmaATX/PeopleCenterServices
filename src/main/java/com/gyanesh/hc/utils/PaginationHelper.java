@@ -6,6 +6,13 @@ import org.springframework.data.domain.Sort;
 
 import com.gyanesh.hc.common.Constants;
 
+/**
+ * This class builds the page request based on the input parameters from the
+ * Rest client applications.
+ * 
+ * @author gyanesh.sharma
+ *
+ */
 public class PaginationHelper {
 
 	public static Pageable buildPageRequest(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder) {
@@ -20,7 +27,7 @@ public class PaginationHelper {
 			if (sortOrder.equals(Constants.DESCENDING)) {
 				pageRquest = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy).descending());
 			} else {
-				// By default sorting order is ascending. 
+				// By default sorting order is ascending.
 				pageRquest = PageRequest.of(pageNumber, pageSize, Sort.by(sortBy).ascending());
 			}
 		}

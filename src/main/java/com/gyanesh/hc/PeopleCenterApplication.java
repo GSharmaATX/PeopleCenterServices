@@ -17,6 +17,7 @@ public class PeopleCenterApplication {
 		SpringApplication.run(PeopleCenterApplication.class, args);
 	}
 
+	
 	@Bean 
 	public ModelMapper modelMapper() {
 		ModelMapper modelMapper = new ModelMapper(); 
