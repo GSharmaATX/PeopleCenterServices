@@ -6,7 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 /**
- * Spring boot main application. 
+ * Spring boot main application.
+ * 
  * @author gyanesh.sharma
  *
  */
@@ -17,12 +18,10 @@ public class PeopleCenterApplication {
 		SpringApplication.run(PeopleCenterApplication.class, args);
 	}
 
-	
-	@Bean 
+	@Bean
 	public ModelMapper modelMapper() {
-		ModelMapper modelMapper = new ModelMapper(); 
+		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE);
-		return modelMapper; 
+		return modelMapper;
 	}
 }
-

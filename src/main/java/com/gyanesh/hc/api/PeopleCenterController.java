@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +31,7 @@ import io.swagger.v3.oas.annotations.Operation;
  */
 @RestController
 @RequestMapping("/")
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class PeopleCenterController {
 
 	@Autowired
@@ -95,12 +96,14 @@ public class PeopleCenterController {
 	}
 
 	@PostMapping(value = "person/person-detail", consumes = "application/json")
+	@Transactional
 	public ResponseEntity<PersonDTO> createPerson(@RequestBody PersonDTO personDTO) {
 		PersonDTO response = personService.createPerson(personDTO);
 		return new ResponseEntity<PersonDTO>(response, HttpStatus.CREATED);
 	}
 
 	@PutMapping(value = "person/{personId}/person-detail", consumes = "application/json")
+	@Transactional
 	public ResponseEntity<PersonDTO> updatePerson(@PathVariable("personId") Long personId,
 			@RequestBody PersonDTO personDTO) {
 		if (personId.equals(personDTO.getId())) {
@@ -114,6 +117,7 @@ public class PeopleCenterController {
 	}
 
 	@DeleteMapping(value = "person/{personId}/person-detail", produces = "application/json")
+	@Transactional
 	public ResponseEntity<String> deletePerson(@PathVariable("personId") Long personId) {
 
 		personService.deletePerson(personId);
